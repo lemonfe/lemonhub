@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "e2e": "node ./e2e/*.js",
-    "permance": "node ./permance/code.js"
+    "permance": "node ./permance/code.js",
+    "ui": "backstop test"
   },
   "author": "",
   "license": "ISC",
