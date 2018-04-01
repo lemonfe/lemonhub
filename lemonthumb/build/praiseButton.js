@@ -1,6 +1,6 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(['exports'], factory);
+        define(["exports"], factory);
     } else if (typeof exports !== "undefined") {
         factory(exports);
     } else {
@@ -11,7 +11,7 @@
         global.praiseButton = mod.exports;
     }
 })(this, function (exports) {
-    'use strict';
+    "use strict";
 
     Object.defineProperty(exports, "__esModule", {
         value: true
@@ -51,23 +51,20 @@
         }
 
         _createClass(PraiseButton, [{
-            key: 'like',
+            key: "like",
             value: function like() {
-                console.log('4');
                 this.praiseNum += 1;
                 this.renderNum(this.praiseNum);
             }
         }, {
-            key: 'unlike',
+            key: "unlike",
             value: function unlike() {
                 this.praiseNum -= 1;
                 this.renderNum(this.praiseNum);
             }
         }, {
-            key: 'renderNum',
-            value: function renderNum(num) {
-                console.log('4');
-            }
+            key: "renderNum",
+            value: function renderNum(num) {}
         }]);
 
         return PraiseButton;

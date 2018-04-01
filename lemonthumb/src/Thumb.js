@@ -1,4 +1,4 @@
-import PraiseButton from './PraiseButton.js';
+import PraiseButton from './praiseButton.js';
 
 class Thumb extends PraiseButton {
     constructor(ele) {

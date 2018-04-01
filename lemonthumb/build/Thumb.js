@@ -1,23 +1,23 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(['exports', './PraiseButton.js'], factory);
+        define(['exports', './praiseButton.js'], factory);
     } else if (typeof exports !== "undefined") {
-        factory(exports, require('./PraiseButton.js'));
+        factory(exports, require('./praiseButton.js'));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod.exports, global.PraiseButton);
+        factory(mod.exports, global.praiseButton);
         global.Thumb = mod.exports;
     }
-})(this, function (exports, _PraiseButton2) {
+})(this, function (exports, _praiseButton) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
         value: true
     });
 
-    var _PraiseButton3 = _interopRequireDefault(_PraiseButton2);
+    var _praiseButton2 = _interopRequireDefault(_praiseButton);
 
     function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {
@@ -107,7 +107,7 @@
             var _this = _possibleConstructorReturn(this, (Thumb.__proto__ || Object.getPrototypeOf(Thumb)).call(this));
 
             _this.ele = ele;
-            _this.node = '\n            <div class="base like">\n\t\t        <div class="mid"></div>\n\t\t        <div class="thumb"></div>\n\t        </div>\n\t        <div class="num">' + _this.praiseNum + '</div>\n        ';
+            _this.node = '\n            <div class="base unlike">\n\t\t        <div class="mid"></div>\n\t\t        <div class="thumb"></div>\n\t        </div>\n\t        <div class="num">' + _this.praiseNum + '</div>\n        ';
 
             $(ele).append($(_this.node));
 
@@ -119,27 +119,26 @@
         _createClass(Thumb, [{
             key: 'likeToggle',
             value: function likeToggle() {
-                console.log('111');
-                var flag = $(this.node).find('.like') ? 1 : 0;
+                var flag = $(this.node).find('.unlike') ? 1 : 0;
                 if (flag) {
-                    console.log('2');
+                    console.log('点赞');
                     this.like();
-                } else {
-                    console.log('3');
-                    this.unlike();
                 }
+                // else{
+                //     console.log('取消点赞');
+                //     this.unlike();
+                // }
             }
         }, {
             key: 'renderNum',
             value: function renderNum(num) {
                 _get(Thumb.prototype.__proto__ || Object.getPrototypeOf(Thumb.prototype), 'renderNum', this).call(this, num);
-                console.log('6');
                 $(this.ele).find('.num').text(num);
             }
         }]);
 
         return Thumb;
-    }(_PraiseButton3.default);
+    }(_praiseButton2.default);
 
     exports.default = Thumb;
 });
