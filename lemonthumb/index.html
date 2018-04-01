@@ -7,26 +7,22 @@
 </head>
 
 <body>
-	<div id="lemon-thumb" style="margin-top: 200px">
-	</div>
-	
-	<script src="//cdn.bootcss.com/systemjs/0.21.0/system-production.js"></script>
-	<script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <div id="lemon-thumb" style="margin-top: 200px">
+    </div>
+    <script src="//cdn.bootcss.com/systemjs/0.21.0/system-production.js"></script>
+    <script src="//cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
     <script type="text/javascript">
     SystemJS.config({
         baseURL: '/lemonthumb/build'
     });
-    SystemJS.import('Thumb.js').then(function (m) {
-        $.fn.Thumb = function () {
+    SystemJS.import('Thumb.js').then(function(m) {
+        $.fn.Thumb = function() {
             return new m.default(this);
         };
-         console.log($('#lemon-thumb'));
+        console.log($('#lemon-thumb'));
         $('#lemon-thumb').Thumb();
     });
-    body.click(function () {
-		$(':root').css('--main-color','red');
-    })
     </script>
 </body>
 
