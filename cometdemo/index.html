@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+ 	// 第一种，前端做处理
+    // var conn = function() {
+    //     $.ajax({
+    //         url: 'data.php',
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             console.log(data);
+    //             conn();
+    //         }
+    //     })
+    // }
+    // conn();
+    
+    
+    // 第二种方法，服务器端利用flush做处理
+    var getXmlHttpRequest = function() {
+        if (window.XMLHttpRequest) {
+            // 主流浏览器提供了XMLHttpRequest对象
+            return new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            // 低版本的IE没有提供XMLHttpRequest对象
+            // 所以必须使用IE的特定实现（ActiveXObject）	
+            return new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    };
+    var xhr = getXmlHttpRequest();
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 3 && xhr.status === 200) {
+            // 获取成功后执行操作
+            // 数据在xhr.responseText
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.open("get", "data.php", true);
+    xhr.send();
+    </script>
+    <title>comet</title>
+</head>
+
+<body>
+    <h1>comet</h1>
+</body>
+
+</html>
